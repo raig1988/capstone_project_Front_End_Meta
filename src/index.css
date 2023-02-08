@@ -7,7 +7,203 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Font */
+
+h1 {
+  font-family: 'Markazi Text';
+  font-size: 40px;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Karla';
+  font-size: 20px;
+  margin: 0;
+}
+
+p {
+  font-family: 'Karla';
+  font-size: 20px;
+}
+
+/* Button */
+
+button {
+  background-color: rgb(244, 206, 20);
+  border-radius: 16px;
+  border: 0px;
+  padding: 15px 25px;
+  margin: 0;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 850px) {
+  nav .nav-responsive {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  nav .nav-fullWidth {
+    display: none;
+  }
+
+  main .hero {
+    grid-template-columns: auto;
+  }
+
+  main .hero-image img {
+    position: static;
+  }
+
+  main .specials-cards {
+    display: block;
+    margin: auto;
+  }
+
+  main .testimonials-reviews {
+    display: block;
+  }
+
+  main .testimonials-reviews div {
+    margin: 10px auto;
+  }
+
+  main .about-us {
+    grid-template-columns: auto;
+    justify-items: center;
+  }
+
+  main .about-us-images {
+    text-align: center;
+  }
+
+  main .about-us .about-us-img-owners {
+    position: static;
+  }
+
+}
+
+ul {
+  list-style-type: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.nav-responsive {
+  display: none;
+}
+
+.nav-fullWidth {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  justify-content: center;
+  align-content: center;
+  gap: 50px;
+  margin: 30px 30px;
+}
+
+main {
+  text-align: center;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(73, 94, 87);
+  padding: 80px 0px;
+}
+
+.hero-image > img {
+  width: 220px;
+  position: absolute;
+  top: 150px;
+}
+
+.hero-text {
+  text-align: left;
+}
+
+.hero-text h1 {
+  color:rgb(244, 206, 20);
+}
+
+.hero-text {
+  color: white;
+}
+
+.hero-text-p {
+  width: 300px;
+  margin: 15px 0px;
+}
+
+.specials {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2, auto);
+  padding: 50px 0px;
+}
+
+.specials-title {
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+.specials-cards {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.testimonials {
+  text-align: center;
+  background-color: rgb(244, 206, 20);
+  padding: 80px 0px;
+}
+
+.testimonials-reviews {
+  display: inline-flex;
+}
+
+.about-us {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0px;
+  text-align: left;
+}
+
+.about-us-images img {
+  width: 250px;
+  height: 250px;
+}
+
+.about-us-img-owners {
+  position: absolute;
+  right: 330px;
+  top: 1460px;
+}
+
+
+
+.about-us-text-p {
+  margin: 20px 0px;
+  width: 300px;
+  font-size: 20px;
+}
+
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-auto-rows: minmax(1fr, auto);
+  justify-content: center;
+  align-content: center;
+  margin: 30px 30px;
 }

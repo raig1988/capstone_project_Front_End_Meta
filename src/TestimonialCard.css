@@ -1,0 +1,49 @@
+.testimonialCard {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 16px;
+    margin: 50px 10px;
+    padding: 10px 10px;
+}
+
+@media screen and (max-width: 850px) {
+    .testimonialCard {
+        width: 200px;
+    }
+}
+
+.testimonialCard-stars {
+    text-align: left;
+    color: orange;
+}
+
+.testimonialCard-user {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding: 10px;
+}
+
+.testimonialCard-review {
+    text-align: left;
+    padding: 5px;
+    width: 100px;
+}
+
+h3 {
+    margin: 0;
+    font-family: 'Karla';
+}
+
+h4 {
+    margin: 0;
+    font-family: 'Karla';
+}
+
+p {
+    margin: 0;
+    font-family: 'Karla';
+    font-size: 12px;
+}

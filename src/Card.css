@@ -1,0 +1,46 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    width: 200px;
+    margin: 40px 20px;
+  }
+
+.card-image img {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+    margin: 2px;
+    background-color: #EDEFEE;
+    text-align: left;
+  }
+
+.container-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2px;
+}
+
+h4 {
+    font-family: 'Markazi Text';
+    font-size: 16px;
+    margin: 4px 0px;
+}
+
+p {
+    font-family: 'Karla';
+    font-size: 14px;
+    margin: 10px 0px;
+}
+
+span {
+    font-family: 'Karla';
+    font-size: 13px;
+}
