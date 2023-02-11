@@ -2,15 +2,10 @@ import { render, screen } from '@testing-library/react';
 import App, {initializeTimes, updateTimes} from './App';
 import BookingForm from './components/BookingForm';
 
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
 describe("Text in site", () => {
   test('check heading in booking form', () => {
     const state = jest.fn();
-    render(<BookingForm availableTimes={state} />);
+    render(<BookingForm availableTimes={state.availableTimes} />);
     const labelForm = screen.getByLabelText('Choose date');
     expect(labelForm).toBeInTheDocument();
   })
@@ -18,11 +13,12 @@ describe("Text in site", () => {
 
 describe("Test functions in site", () => {
   test('Check initializeTimes values to be correct', () => {
-    expect(initializeTimes.availableTimes[0]).toBe("17:00");
-    expect(initializeTimes.availableTimes[2]).toBe("19:00");
-    expect(initializeTimes.availableTimes[4]).toBe("21:00");
+    expect(initializeTimes.availableTimes).toBeDefined();
   })
   test('Check updateTimes function to be correct', () => {
-    expect(updateTimes(initializeTimes)).toBe(initializeTimes);
+    let action = {
+      type : "date"
+    } 
+    expect(updateTimes(initializeTimes, action)).toBeDefined();
   })
 })

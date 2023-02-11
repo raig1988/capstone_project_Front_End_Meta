@@ -2,21 +2,29 @@ import './App.css';
 import HomePage from './components/Homepage';
 import BookingPage from './components/BookingPage';
 import NoPage from './components/NoPage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {useReducer, useState} from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import {useEffect, useReducer, useState} from 'react';
+import {fetchAPI, submitAPI} from './api'
+import ConfirmedBooking from './components/ConfirmedBooking';
 
 // reducer
 export const updateTimes = (state, action) => {
+  if (action.type === 'date') {
+    return {
+      availableTimes: fetchAPI(new Date(action.date))
+    };
+  }
   return state;
 }
+const today = new Date();
 // initial state
-export const initializeTimes = {availableTimes : ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]};
+export const initializeTimes = {availableTimes : fetchAPI(today)};
 
 function App() {
 
+  const navigate = useNavigate();
   
   const [state, dispatch] = useReducer(updateTimes, initializeTimes); 
-
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState("");
@@ -25,6 +33,7 @@ function App() {
   const handleChange = (e) => {
     if (e.target.id === "res-date") {
         setDate(e.target.value);
+        dispatch({ type: 'date', date: e.target.value })
     } else if (e.target.id === "res-time") {
         setTime(e.target.value);
     } else if (e.target.id === "guests") {
@@ -36,19 +45,23 @@ function App() {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Date selected is', date);
-    console.log('Time selected is', time);
-    console.log('The number of guests is', guests);
-    console.log('The occasion is', occasion);
+    const formData = {
+      "date" : date,
+      "time" : time,
+      "number of guests" : guests,
+      "occasion" : occasion
+    }
+    if(submitAPI(formData)) {
+      navigate('/bookingconfirmed');
+    };
 }
 
   return (
-    <BrowserRouter>
       <Routes>
         <Route index element={<HomePage />}></Route>
         <Route path="/booking" element={
           <BookingPage 
-            availableTimes={state} 
+            availableTimes={state.availableTimes} 
             handleChange={handleChange} 
             handleSubmit={handleSubmit} 
             date={date} 
@@ -56,8 +69,8 @@ const handleSubmit = (e) => {
             occasion={occasion}  />
           }></Route>
         <Route path="*" element={<NoPage />}></Route>
+        <Route path="/bookingconfirmed" element={<ConfirmedBooking />}></Route>
       </Routes>
-    </BrowserRouter>
   );
 }
 

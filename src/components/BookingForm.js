@@ -9,12 +9,7 @@ function BookingForm(props) {
                 <input value={props.date} onChange={props.handleChange} type="date" id="res-date" />
                 <label htmlFor="res-time">Choose time</label>
                 <select onChange={props.handleChange} id="res-time">
-                    <option value={props.availableTimes[0]}>17:00</option>
-                    <option value={props.availableTimes[1]}>18:00</option>
-                    <option value={props.availableTimes[2]}>19:00</option>
-                    <option value={props.availableTimes[3]}>20:00</option>
-                    <option value={props.availableTimes[4]}>21:00</option>
-                    <option value={props.availableTimes[5]}>22:00</option>
+                    {props.availableTimes ? props.availableTimes.map((element, key) => <option key={key} value={element}>{element}</option>) : []}
                 </select>
                 <label htmlFor="guests">Number of guests</label>
                 <input value={props.guests} onChange={props.handleChange} type="number" placeholder={1} min={1} max={10} id="guests" />
