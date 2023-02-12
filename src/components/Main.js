@@ -10,10 +10,10 @@ import BruschettaImage from '../images/bruschettaImage.png';
 function Main() {
     return (
         <main>
-            <Hero image={HeroImage} />
-            <Specials GreekSalad={GreekSalad} BruschettaImage={BruschettaImage} LemonDessert={LemonDessert} />
-            <Testimonials />
-            <AboutUs />
+            <Hero image={HeroImage} aria-label='presentation' />
+            <Specials aria-label='different dishes' GreekSalad={GreekSalad} BruschettaImage={BruschettaImage} LemonDessert={LemonDessert} />
+            <Testimonials aria-label='user opinions' />
+            <AboutUs aria-label='restaurant info' />
         </main>
     )
 }

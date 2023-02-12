@@ -1,5 +1,15 @@
+.formDiv {
+    background-color: rgba(244, 206, 20);
+    padding-bottom: 20px;
+}
+
+.formDiv > h1 {
+    text-align: center;
+    padding-top: 30px;
+}
+
 .bookingForm {
     display: flex;
     justify-content: center;
-    margin: 100px 20px;
+    margin: 50px 20px;
 }

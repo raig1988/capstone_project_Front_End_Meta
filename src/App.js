@@ -2,8 +2,8 @@ import './App.css';
 import HomePage from './components/Homepage';
 import BookingPage from './components/BookingPage';
 import NoPage from './components/NoPage';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import {useEffect, useReducer, useState} from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useReducer, useState} from 'react';
 import {fetchAPI, submitAPI} from './api'
 import ConfirmedBooking from './components/ConfirmedBooking';
 
@@ -23,7 +23,8 @@ export const initializeTimes = {availableTimes : fetchAPI(today)};
 function App() {
 
   const navigate = useNavigate();
-  
+
+  const dateMin = today.toISOString().split('T')[0]
   const [state, dispatch] = useReducer(updateTimes, initializeTimes); 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -56,6 +57,10 @@ const handleSubmit = (e) => {
     };
 }
 
+const validate = () => {
+  return date.length && time.length && guests.length && occasion.length;
+};
+
   return (
       <Routes>
         <Route index element={<HomePage />}></Route>
@@ -64,12 +69,15 @@ const handleSubmit = (e) => {
             availableTimes={state.availableTimes} 
             handleChange={handleChange} 
             handleSubmit={handleSubmit} 
+            today={dateMin}
             date={date} 
             guests={guests} 
-            occasion={occasion}  />
+            occasion={occasion}
+            validate={validate}  
+            />
           }></Route>
         <Route path="*" element={<NoPage />}></Route>
-        <Route path="/bookingconfirmed" element={<ConfirmedBooking />}></Route>
+        <Route path="/bookingconfirmed" element={<ConfirmedBooking date={date} time={time} guests={guests} occasion={occasion} />}></Route>
       </Routes>
   );
 }
