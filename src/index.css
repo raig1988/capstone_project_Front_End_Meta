@@ -46,7 +46,23 @@ button {
   nav .nav-fullWidth {
     display: none;
   }
-
+  #myLinks {
+    display: none;
+  }
+  #myLinks ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+  }
+  #myLinks ul li {
+    border-bottom: 1px solid black;
+    padding-bottom: 4px;
+    border-top: 1px solid black;
+    padding-top: 4px;
+  }
   main .hero {
     grid-template-columns: auto;
   }
@@ -81,6 +97,10 @@ button {
     position: static;
   }
 
+}
+
+#myLinks {
+   display: none;
 }
 
 ul {

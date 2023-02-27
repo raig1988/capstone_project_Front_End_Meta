@@ -1,0 +1,14 @@
+.bookingConfirmed {
+    background-color: rgba(73,94,87);
+    padding: 50px 50px;
+}
+
+.bookingConfirmed > h1 {
+    margin: 10px;
+    color: white;
+}
+
+.bookingConfirmed > p {
+    color: white;
+    text-align: center;
+}
